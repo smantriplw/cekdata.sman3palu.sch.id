@@ -69,8 +69,8 @@ export default function Home() {
             </span>
           </div>
           <div className="join">
-            <input type="text" placeholder='NISN' className="join-item input input-bordered w-full md:w-11/12" value={nisn} onChange={(ev) => setNisn(ev.target.value)} />
-            <input type="text" placeholder='Nama Ibu' className="join-item input input-bordered w-full md:w-11/12" value={mother} onChange={(ev) => setMother(ev.target.value)} />
+            <input type="text" required placeholder='NISN' className="join-item input input-bordered w-full md:w-11/12" value={nisn} onChange={(ev) => setNisn(ev.target.value)} />
+            <input type="text" required placeholder='Nama Ibu' className="join-item input input-bordered w-full md:w-11/12" value={mother} onChange={(ev) => setMother(ev.target.value)} />
             <button type="submit" className="join-item btn btn-primary">Cek Data</button>
           </div>
           <div className="label">

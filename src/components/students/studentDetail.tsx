@@ -2,13 +2,17 @@ import {StudentTypes} from 'vervalpd-node';
 import {motion} from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 export const StudentDetail: React.FC<{
     student: StudentTypes.Student;
 }> = (props) => {
     return (
         <React.Fragment>
-            <motion.div className="rounded-sm glass p-3 flex flex-row space-x-4 mt-3 md:w-1/2">
+            <motion.div className="rounded-sm glass p-3 flex flex-row space-x-4 mt-3 md:w-1/2" initial={{opacity: 0}} animate={{
+                borderRadius: ['50%', '40%', '30%', '20%', '10%', '0%'],
+                opacity: 1,
+            }}>
                 <div className="avatar">
                     <div className="w-24 rounded-md">
                         <Image src={'https://nisn.data.kemdikbud.go.id/assets/images/student_icon.png'} alt={'Student Avatar'} fill sizes={'100vh'} />
@@ -25,8 +29,8 @@ export const StudentDetail: React.FC<{
                         <p className='text-xs text-left'>Data diambil pada {new Date().toLocaleTimeString()}</p>
                     </div>
                     <div className="mt-2 flex space-x-2">
-                        <a href={'/residu/'.concat(props.student.id)} className="text-blue-400 text-sm btn btn-sm">Lihat residu data</a>
-                        <a href={'/detail/'.concat(props.student.id)} className="text-red-400 text-sm btn btn-sm">Lihat lebih detail</a>
+                        <Link href={'/residu/'.concat(props.student.id)} className="text-blue-400 text-sm btn btn-sm">Lihat residu data</Link>
+                        <Link href={'/detail/'.concat(props.student.id)} className="text-red-400 text-sm btn btn-sm">Lihat lebih detail</Link>
                     </div>
                 </div>
                 <div className="hidden lg:block w-1/2">
