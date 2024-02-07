@@ -1,4 +1,5 @@
 'use server';
+import { StudentContents } from "@/components/students/studentContents";
 import { verval } from "@/libraries/vervalpd";
 import Link from "next/link";
 
@@ -20,7 +21,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     }
 
     const student = await verval.getProfile(params.id);
-    if (!student) {
+    if (!student?.name.length) {
         return (
             <main>
                 <h1 className="text-center text-4xl font-sans font-semibold">
@@ -46,15 +47,16 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <span className="font-sans font-medium">{student.nisn}</span> - {student.born.place}, {student.born.date} {student.nationality}
                 </p>
 
-                <div className="tabs tabs-boxed tabs-md grid-cols-3 m-10 justify-center font-sans">
-                    <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 1" />
-                    <div role="tabpanel" className="tab-content p-10">Tab content 1</div>
-
-                    <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 2" checked />
-                    <div role="tabpanel" className="tab-content p-10">Tab content 2</div>
-
-                    <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 3" />
-                    <div role="tabpanel" className="tab-content p-10">Tab content 3</div>    
+                <StudentContents student={{
+                    ...student,
+                    motherName: student.motherName.slice(0, 1) + '*'.repeat(student.motherName.slice(1).length),
+                    nik: student.nik ? `${student.nik.slice(0, 5)}${'*'.repeat(student.nik.slice(0, -5).length)}` : '-',
+                    akta: `${student.akta.split('/').map(x => x.slice(0, 2) + '*'.repeat(x.slice(0, -2).length)).join('/')}`,
+                }} />
+                <div>
+                    <p className="font-light font-sans text-sm">
+                        Data diambil pada {new Date().toLocaleDateString()}
+                    </p>
                 </div>
             </div>
         </main>

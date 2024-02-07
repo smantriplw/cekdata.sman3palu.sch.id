@@ -29,7 +29,7 @@ export const StudentDetail: React.FC<{
                         <p className='text-xs text-left'>Data diambil pada {new Date().toLocaleTimeString()}</p>
                     </div>
                     <div className="mt-2 flex space-x-2">
-                        <Link href={'/residu/'.concat(props.student.id)} className="text-blue-400 text-sm btn btn-sm">Lihat residu data</Link>
+                        <Link href={'/residu/'.concat(props.student.nisn.split('').reverse().join(''))} className="text-blue-400 text-sm btn btn-sm">Lihat residu data</Link>
                         <Link href={'/detail/'.concat(props.student.id)} className="text-red-400 text-sm btn btn-sm">Lihat lebih detail</Link>
                     </div>
                 </div>

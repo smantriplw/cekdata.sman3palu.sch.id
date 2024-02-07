@@ -1,6 +1,6 @@
 import { verifyCaptcha } from "@/libraries/verifyCaptcha";
 import { verval } from "@/libraries/vervalpd";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse as Response } from "next/server";
 
 export async function GET(request: NextRequest) {
     const captchaVerify = await verifyCaptcha(request.nextUrl.searchParams.get('token') ?? '', request.ip);
