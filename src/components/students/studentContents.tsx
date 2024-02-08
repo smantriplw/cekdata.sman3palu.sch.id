@@ -61,7 +61,7 @@ export const StudentContents: React.FC<{
 
                     <input type="radio" name="student_tab" role="tab" className="tab" aria-label="Kesehatan" />
                     <div role="tabpanel" className="tab-content p-10">
-                        <div className="flex w-full">
+                        <div className="flex flex-col lg:flex-row w-full">
                             {props.student?.vaccines.map(vaccine => (
                                 <React.Fragment key={vaccine.date.toString()}>
                                     <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">
@@ -71,7 +71,7 @@ export const StudentContents: React.FC<{
                                             year: 'numeric',
                                         })} dosis ke-{vaccine.dosed} di {vaccine.place}
                                     </div>
-                                    {props.student?.vaccines.at(-1) !== vaccine && <div className="divider divider-vertical lg:divider-horizontal"></div>}
+                                    {props.student?.vaccines.at(-1) !== vaccine && <div className="divider lg:divider-horizontal"></div>}
                                 </React.Fragment>
                             ))}
                         </div>
