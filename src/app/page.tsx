@@ -35,6 +35,7 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
+      cache: 'force-cache',
     });
 
     const data = await response.json();

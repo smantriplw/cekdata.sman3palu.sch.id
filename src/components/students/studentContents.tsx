@@ -71,7 +71,7 @@ export const StudentContents: React.FC<{
                                             year: 'numeric',
                                         })} dosis ke-{vaccine.dosed} di {vaccine.place}
                                     </div>
-                                    {props.student?.vaccines.at(-1) !== vaccine && <div className="divider divider-horizontal"></div>}
+                                    {props.student?.vaccines.at(-1) !== vaccine && <div className="divider divider-vertical lg:divider-horizontal"></div>}
                                 </React.Fragment>
                             ))}
                         </div>

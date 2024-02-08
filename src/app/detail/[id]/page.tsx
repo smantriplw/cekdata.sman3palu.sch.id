@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         )
     }
 
-    const student = await verval.getProfile(params.id);
+    const student = await verval.getProfile(params.id).catch(() => undefined);
     if (!student?.name.length) {
         return (
             <main>
