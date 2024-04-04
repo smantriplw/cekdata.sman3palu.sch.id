@@ -17,7 +17,7 @@
     "react-hot-toast": "^2.4.1",
     "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
-    "vervalpd-node": "^0.1.0",
+    "vervalpd-node": "0.2.0",
     "zustand": "^4.5.0"
   },
   "devDependencies": {

@@ -54,7 +54,10 @@ export async function GET(request: NextRequest) {
         });
     }
 
-    const students = await verval.findStudent(nisn).catch(() => null);
+    const students = await verval.findStudent(nisn).catch((e) => {
+	    console.log(e);
+	    return null;
+    });
     if (!students?.length || students[0].motherName.toLowerCase() !== motherName.toLowerCase()) {
         return Response.json({
             error: 'Student not found',
